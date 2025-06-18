@@ -1,0 +1,27 @@
+split:
+  train_csv:           "data/processed/train.csv"
+  test_csv:            "data/processed/test.csv"
+
+features:
+  ngram_range:         [1, 2]
+  use_tfidf:           true
+  lowercase:           true
+  remove_regex:        "[^a-z0-9]"
+
+models:
+  cv_folds:            5
+  shallow:
+    Cs:                [0.01, 0.1, 1, 10]
+    ngram_ranges:
+      - [1, 1]
+      - [1, 2]
+    best_model_path:   "models/shallow/best_model.joblib"
+    cv_results_path:   "models/shallow/cv_results.csv"
+
+reports:
+  shallow:
+    labels:
+      - FAKE
+      - REAL
+    metrics_csv:          "reports/shallow/metrics.csv"
+    confusion_matrix_png: "reports/shallow/confusion_matrix.png"

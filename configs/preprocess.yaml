@@ -1,0 +1,45 @@
+# Phase 1 – Download, Clean & Split
+download:
+  repo_url: "https://github.com/GeorgeMcIntire/fake_real_news_dataset.git"
+  dest_dir: "data/raw/fake-news"
+
+clean:
+  input_csv:   "data/raw/fake-news/fake_and_real_news_dataset.csv"
+  output_csv:  "data/clean/news.csv"
+  lowercase:   true
+  remove_regex: "[^a-z0-9]"
+  label_map:
+    FAKE: 0
+    REAL: 1
+
+split:
+  input_csv:  "data/clean/news.csv"
+  train_csv:  "data/processed/train.csv"
+  val_csv:    "data/processed/val.csv"
+  test_csv:   "data/processed/test.csv"
+  ratios:     [0.7, 0.15, 0.15]
+  random_seed: 42
+# …Phase 1 bleibt unverändert…
+# --- Phase 1: Download / Clean / Split bleibt unverändert ---
+
+# Phase 2: Feature Extraction & Shallow Models
+features:
+  # build_vectorizer() erwartet diese Keys
+  ngram_range: [1, 2]
+  use_tfidf: true
+  lowercase: true
+  remove_regex: "[^a-z0-9]"
+
+models:
+  cv_folds: 5
+  shallow:
+    Cs:
+      - 0.01
+      - 0.1
+      - 1
+      - 10
+    ngram_ranges:
+      - [1, 1]
+      - [1, 2]
+    best_model_path:    "models/shallow/best_model.joblib"
+    cv_results_path:    "models/shallow/cv_results.csv"

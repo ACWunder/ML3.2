@@ -1,0 +1,28 @@
+data:
+  train_csv:        "data/processed/train.csv"
+  val_csv:          "data/processed/val.csv"
+  test_csv:         "data/processed/test.csv"
+
+model:
+  name:             "bilstm"
+  distilbert:
+    pretrained_model_name: "distilbert-base-uncased"
+    max_length:            128
+  bilstm:
+    max_length:  100
+    min_freq:    2
+    vocab:       {}
+
+training:
+  batch_size:          16
+  lr:                  2e-3          # ggf. etwas höher für LSTM
+  epochs:              5
+  best_ckpt_path:      "models/deep_bilstm/best.pt"
+  tb_logdir:           "runs/deep_bilstm"
+  early_stop_patience: 2
+
+reports:
+  deep:
+    labels:                ["FAKE","REAL"]
+    metrics_csv:           "reports/deep_bilstm/metrics.csv"
+    confusion_matrix_png:  "reports/deep_bilstm/confusion_matrix.png"

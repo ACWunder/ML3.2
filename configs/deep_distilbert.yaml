@@ -1,0 +1,32 @@
+# configs/deep_distilbert.yaml
+
+data:
+  train_csv:        "data/processed/train.csv"
+  val_csv:          "data/processed/val.csv"
+  test_csv:         "data/processed/test.csv"
+
+model:
+  name:             "distilbert"
+
+  distilbert:
+    pretrained_model_name: "distilbert-base-uncased"
+    max_length:            128
+
+  bilstm:
+    max_length:  100
+    min_freq:    2
+    vocab:       {}
+
+training:
+  batch_size:          16
+  lr:                  2e-5
+  epochs:              5
+  best_ckpt_path:      "models/deep_distilbert/best.pt"
+  tb_logdir:           "runs/deep_distilbert"
+  early_stop_patience: 2
+
+reports:
+  deep_distilbert:
+    labels:                  ["FAKE", "REAL"]
+    metrics_csv:             "reports/deep_distilbert/metrics.csv"
+    confusion_matrix_png:    "reports/deep_distilbert/confusion_matrix.png"

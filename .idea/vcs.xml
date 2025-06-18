@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/raw/fake-news" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exercise3-clean" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exercise3-clean/ML3.1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exercise3-clean/ML3.1/data/raw/fake-news" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exercise3-clean/ML3.1/exercise3-clean" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exercise3-clean/ML3.1/exercise3-clean/ML3.1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exercise3-clean/ML3.1/exercise3-clean/ML3.1/data/raw/fake-news" vcs="Git" />
+  </component>
+</project>
