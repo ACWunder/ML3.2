@@ -1,6 +1,13 @@
+# Python venv
+venv/
+
+# Training artifacts
 models/
 runs/
-models/
-runs/
-models/
-runs/
+
+# Bytecode / caches
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
