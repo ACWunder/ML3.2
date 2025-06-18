@@ -1,0 +1,8 @@
+# virtual env
+venv/
+# caches & pyc
+__pycache__/
+*.pyc
+# training artifacts
+runs/
+models/
